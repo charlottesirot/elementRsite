@@ -1,0 +1,100 @@
+---
+title: ''
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    css: style.css
+    theme: sandstone
+---
+
+
+```{r out.width = '40%', echo= FALSE, fig.align="center"}
+knitr::include_graphics("LogoFinal.png")
+```
+
+There is so far two ways to download elementR:
+
+- [CRAN](https://CRAN.R-project.org/package=elementR)
+
+- [GitHub](https://github.com/charlottesirot/elementR)
+
+<br />
+
+
+# Before installation
+
+<br />
+
+1. Check the version of R installed on your computer (`sessionInfo()`), must be ≥ 3.2.3, see [https://cran.r-project.org/](https://cran.r-project.org/) to update your version.
+
+2. __For Mac users only__: elementR package needs XQuartz. Please check, that XQuartz is installed and runs properly on your computer. If not, please visit [https://www.xquartz.org/](https://www.xquartz.org/).
+
+
+<br />
+
+# Installation
+
+<br />
+
+The easiest way to get elementR is to install it from [CRAN](https://CRAN.R-project.org/package=elementR):
+
+```
+install.packages("elementR", dependencies = T)
+library(elementR)
+```
+
+Alternatively, you can install the development version (not yet pushed on cran) from [GitHub](https://github.com/charlottesirot/elementR) :
+
+```
+#Install elementR's dependencies
+pkgs <- c("gdata", "shiny","devtools", "shinyjs", "gnumeric", "R6", "shinydashboard",
+	"abind", "stringr", "lmtest", "tcltk", "tcltk2", "reader", "readODS", "readxl", "outliers", "climtrends",
+	"EnvStats", "colourpicker", "zoo", "httpuv")
+
+invisible(lapply(pkgs, function(pkgs){
+	if(!require(pkgs)){
+		install.packages(pkgs, dependencies=TRUE)
+	}
+}))
+
+#Install elementR
+devtools::install_github("charlottesirot/elementR", ref = "master", force = T, dependencies = T)
+
+library(elementR)
+```
+<br />
+
+# Notes on installation
+
+<br />
+
+For Mac users: during installation elementR will ask to install "XCode/otool". Accept this installation.
+
+If the installation is stuck at the installation of the tcltk package, this probably means that XQuartz does not run properly. Check its validity.
+
+For Linux users: you could need to install additional libraries: 
+
+```
+sudo apt-get update
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libssl-dev
+sudo apt-get install libxml2-dev
+sudo apt-get install libssh2-1-dev
+```
+
+the elementR GUI runs on any web browser. However, as the graphic of the user interface has been developed based on Firefox, authors highly recommend to run elementR under [Firefox](https://www.mozilla.org/en-US/firefox/new/).
+
+<br />
+
+# Usage
+
+<br />
+
+To launch elementR, run the following command in your R console:
+
+```
+runElementR()
+```
+
+<br />

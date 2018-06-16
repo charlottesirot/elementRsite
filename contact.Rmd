@@ -1,0 +1,23 @@
+---
+title: ''
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    css: style.css
+    theme: sandstone
+---
+
+```{r out.width = '40%', echo= FALSE, fig.align="center"}
+knitr::include_graphics("LogoFinal.png")
+```
+
+# Contact us
+
+The development team: [elementR.software@gmail.com](mailto:elementR.software@gmail.com)
+
+<br />
+
+# And if there is a bug?
+
+If, despite the `` `r emo::ji("heart")` `` brought during the programming of this R package and writing of this documentation, you find a bug :beetle:, do not hesitate to connect with us on [GitHub](https://github.com/charlottesirot/elementR/issues).

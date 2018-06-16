@@ -5,9 +5,13 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Procedures"
+    - text: "Installation"
+      href: installation.html
+    - text: "Features"
       href: about.html
     - text: "Future"
       href: development.html
     - text: "Survey"
       href: https://goo.gl/forms/SSHjEzUydJiVpMOB3
+    - text: "Contact"
+      href: contact.html    

@@ -280,13 +280,19 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="about.html">Procedures</a>
+  <a href="installation.html">Installation</a>
+</li>
+<li>
+  <a href="about.html">Features</a>
 </li>
 <li>
   <a href="development.html">Future</a>
 </li>
 <li>
   <a href="https://goo.gl/forms/SSHjEzUydJiVpMOB3">Survey</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -304,7 +310,7 @@ div.tocify {
 </div>
 
 
-<p><img src="LogoFinal.png" width="30%" style="display: block; margin: auto;" /></p>
+<p><img src="LogoFinal.png" width="40%" style="display: block; margin: auto;" /></p>
 <div id="procedures-of-elementr" class="section level1">
 <h1>Procedures of elementR</h1>
 <p><br /></p>
@@ -323,8 +329,8 @@ div.tocify {
 <p>The two last tabs “Configuration”and “Source code for app” are not part of the data reduction procedure but bring additional information detailed later in this document.</p>
 <p><br /></p>
 </div>
-<div id="data-requirements" class="section level1">
-<h1>Data requirements</h1>
+<div id="what-data" class="section level1">
+<h1>What data?</h1>
 <p><br /></p>
 <ul>
 <li><p>A set of data from standard analysis (at least one). elementR is compatible with all standard types (NIST 612, NIST 610, MACS…). However, standards of a single session must have all the same type (that is the reason we call them standard replicates and that they are stored in a same folder).</p></li>
@@ -333,8 +339,8 @@ div.tocify {
 </ul>
 <p><br /></p>
 </div>
-<div id="format-requirements" class="section level1">
-<h1>Format requirements</h1>
+<div id="what-format" class="section level1">
+<h1>What format?</h1>
 <p><br /></p>
 <ul>
 <li><p>The format of data compatible with the elementR application are those from worksheet from Excel (.xls, .xlsx), LibreOffice (.ods) or text (.csv). <br /> For the text format, the separator used by default is the semi-colon. However, you can change this parameter before uploading your project in the configuration tab. <br /> For any format (except for text format), the decimal has to be indicated by a point (for text format, you can however customize the decimal in the configuration tab before uploading your project). <br /> For Excel format, elementR reads the first worksheet of the file. For OpenOffice format, you have to indicate to elementR the sheet to import by calling the sheet to import “data”. <br /></p></li>
@@ -359,8 +365,8 @@ Figure 2: example of data structure compatible with elementR application for cal
 <p>Some compatible format of all kind of data are provided with the elementR package, take a look ! (in the folder where R packages are installed, reach the elementR folder and look at the “Example_Session”, you will find the files).</p>
 <p><br /></p>
 </div>
-<div id="data-structure" class="section level1">
-<h1>Data structure</h1>
+<div id="what-structure" class="section level1">
+<h1>What structure?</h1>
 <p><br /></p>
 <p>The data must be organized in a session framework (Fig. 3):</p>
 <p>All file corresponding to standard replicates must be included in the same folder called “standards” (= batch of standard replicates).<br /> All samples must be included in the same folder called “samples”.<br /> All sample replicates of the same sample (even if there is only a single replicate) must be included in a folder with the name of the considered sample (= a batch of sample replicates).<br /> The “standards” and the “samples” sub-folders have to be included in a folder called with the name of the project.<br /> In any case when you upload your data, elementR checks the validity of these points and indicates the problem if any.<br /></p>
@@ -371,66 +377,6 @@ Figure 2: example of data structure compatible with elementR application for cal
 Figure 3: example of session organization compatible with elementR application: all standards (S1, S2, Sn) are in a “standards” folder (in red), all samples are in a “samples” folder (in green). Each sample replicate R1, R2, Rn (even if there is only a single replicate) must be included in a sub-folder with the name of the sample (in blue). The name of the sample sub-folders and of the standard and sample replicates do not matter. 
 </p>
 </div>
-<p><br /></p>
-</div>
-<div id="installation" class="section level1">
-<h1>Installation</h1>
-<p><br /></p>
-<div id="before-installation" class="section level3">
-<h3>Before installation</h3>
-<ol style="list-style-type: decimal">
-<li><p>Check the version of R installed on your computer (<code>sessionInfo()</code>), must be ≥ 3.2.3, see <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> to update your version.</p></li>
-<li><p><strong>For Mac users only</strong>: elementR package needs XQuartz. Please check, that XQuartz is installed and runs properly on your computer. If not, please visit <a href="https://www.xquartz.org/" class="uri">https://www.xquartz.org/</a>.</p></li>
-</ol>
-<p><br /></p>
-</div>
-<div id="installation-1" class="section level3">
-<h3>Installation</h3>
-<p>The easiest way to get elementR is to install it from <a href="https://CRAN.R-project.org/package=elementR">CRAN</a>:</p>
-<pre><code>install.packages(&quot;elementR&quot;, dependencies = T)
-library(elementR)</code></pre>
-<p>Alternatively, you can install the development version (not yet pushed on cran) from <a href="https://github.com/charlottesirot/elementR">GitHub</a> :</p>
-<pre><code>#Install elementR&#39;s dependencies
-pkgs &lt;- c(&quot;gdata&quot;, &quot;shiny&quot;,&quot;devtools&quot;, &quot;shinyjs&quot;, &quot;gnumeric&quot;, &quot;R6&quot;, &quot;shinydashboard&quot;,
-    &quot;abind&quot;, &quot;stringr&quot;, &quot;lmtest&quot;, &quot;tcltk&quot;, &quot;tcltk2&quot;, &quot;reader&quot;, &quot;readODS&quot;, &quot;readxl&quot;, &quot;outliers&quot;, &quot;climtrends&quot;,
-    &quot;EnvStats&quot;, &quot;colourpicker&quot;, &quot;zoo&quot;, &quot;httpuv&quot;)
-
-invisible(lapply(pkgs, function(pkgs){
-    if(!require(pkgs)){
-        install.packages(pkgs, dependencies=TRUE)
-    }
-}))
-
-#Install elementR
-devtools::install_github(&quot;charlottesirot/elementR&quot;, ref = &quot;master&quot;, force = T, dependencies = T)
-
-library(elementR)</code></pre>
-<p><br /></p>
-</div>
-<div id="notes-on-installation" class="section level3">
-<h3>Notes on installation :</h3>
-<p>For Mac users: during installation elementR will ask to install “XCode/otool”. Accept this installation.</p>
-<p>If the installation is stuck at the installation of the tcltk package, this probably means that XQuartz does not run properly. Check its validity.</p>
-<p>For Linux users: you could need to install additional libraries:</p>
-<pre><code>sudo apt-get update
-sudo apt-get install libcurl4-openssl-dev
-sudo apt-get install libssl-dev
-sudo apt-get install libxml2-dev
-sudo apt-get install libssh2-1-dev</code></pre>
-<p>the elementR GUI runs on any web browser. However, as the graphic of the user interface has been developed based on Firefox, authors highly recommend to run elementR under <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.</p>
-<p><br /></p>
-</div>
-<div id="usage" class="section level3">
-<h3>Usage</h3>
-<p>To launch elementR, run the following command in your R console:</p>
-<pre><code>runElementR()</code></pre>
-<p><br /></p>
-</div>
-</div>
-<div id="and-if-there-is-a-bug" class="section level1">
-<h1>And if there is a bug?</h1>
-<p><br /></p>
-<p>If, despite the <code>❤️</code> brought during the programming of this R package and writing of this documentation, you have difficulties to install or run elementR, if you have questions about the procedures or calculations, or if you want to report bugs :beetle:, do not hesitate to consult the official elementR documentation above or on <a href="https://CRAN.R-project.org/package=elementR">CRAN</a> or connect with us on <a href="https://github.com/charlottesirot/elementR">GitHub</a>.</p>
 </div>
 
 
